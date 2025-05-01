@@ -8,26 +8,54 @@ description: 'Example section for showcasing API endpoints'
   this section by removing the api-reference folder.
 </Note>
 
-## Welcome
+# API Reference
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
-
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+Welcome to the Courier API documentation. This API allows you to send messages, manage audiences, and track audit events.
 
 ## Authentication
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+All API requests must be authenticated using a Bearer token. Include your API key in the Authorization header:
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+```bash
+Authorization: Bearer YOUR_API_KEY
 ```
+
+## Base URL
+
+```bash
+https://api.courier.com
+```
+
+## Rate Limits
+
+The API has rate limits to ensure fair usage. Please contact support for specific rate limit information.
+
+## Response Codes
+
+The API uses standard HTTP response codes:
+
+- `200`: Success
+- `204`: Success (No Content)
+- `400`: Bad Request
+- `401`: Unauthorized
+- `403`: Forbidden
+- `404`: Not Found
+- `429`: Too Many Requests
+- `500`: Internal Server Error
+
+## API Endpoints
+
+The API is organized into the following sections:
+
+- **Messages**: Send messages to recipients
+- **Audiences**: Manage audience lists and members
+- **Audit Events**: Track system events and changes
+- **Authentication**: Manage API tokens
+
+## Getting Started
+
+1. Obtain your API key from the Courier dashboard
+2. Include the API key in the Authorization header
+3. Start making API calls to send messages and manage your audiences
+
+For detailed information about each endpoint, please refer to the sections below.

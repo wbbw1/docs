@@ -1,0 +1,129 @@
+# Audiences
+
+Manage your audience lists and their members.
+
+## Get Audience
+
+Retrieve information about a specific audience.
+
+<Endpoint
+  method="GET"
+  path="/audiences/{audience_id}"
+  summary="Get an audience"
+/>
+
+### Request
+
+<RequestExample
+  title="Get audience details"
+  method="GET"
+  path="/audiences/audience-123"
+/>
+
+### Response
+
+<ResponseExample
+  title="Success Response"
+  statusCode="200"
+  responseBody={{
+    "id": "audience-123",
+    "name": "Premium Users",
+    "description": "Users with premium subscription",
+    "created_at": "2024-01-01T00:00:00Z",
+    "updated_at": "2024-01-01T00:00:00Z"
+  }}
+/>
+
+## Update Audience
+
+Create or update an audience.
+
+<Endpoint
+  method="PUT"
+  path="/audiences/{audience_id}"
+  summary="Update an audience"
+/>
+
+### Request
+
+<RequestExample
+  title="Update audience"
+  method="PUT"
+  path="/audiences/audience-123"
+  requestBody={{
+    "name": "Premium Users",
+    "description": "Users with premium subscription",
+    "filter": {
+      "type": "user",
+      "conditions": [
+        {
+          "field": "subscription",
+          "operator": "equals",
+          "value": "premium"
+        }
+      ]
+    }
+  }}
+/>
+
+### Response
+
+<ResponseExample
+  title="Success Response"
+  statusCode="200"
+  responseBody={{
+    "id": "audience-123",
+    "name": "Premium Users",
+    "description": "Users with premium subscription",
+    "created_at": "2024-01-01T00:00:00Z",
+    "updated_at": "2024-01-01T00:00:00Z"
+  }}
+/>
+
+## Delete Audience
+
+Remove an audience.
+
+<Endpoint
+  method="DELETE"
+  path="/audiences/{audience_id}"
+  summary="Delete an audience"
+/>
+
+### Request
+
+<RequestExample
+  title="Delete audience"
+  method="DELETE"
+  path="/audiences/audience-123"
+/>
+
+### Response
+
+<ResponseExample
+  title="Success Response"
+  statusCode="204"
+/>
+
+## Error Handling
+
+The API may return the following error responses:
+
+<ResponseField name="400" type="object">
+  Bad Request - The request was invalid or cannot be processed
+</ResponseField>
+
+<ResponseField name="401" type="object">
+  Unauthorized - Invalid or missing API key
+</ResponseField>
+
+<ResponseField name="404" type="object">
+  Not Found - The specified audience does not exist
+</ResponseField>
+
+## Best Practices
+
+1. Use descriptive names for your audiences
+2. Keep audience filters up to date
+3. Monitor audience size and growth
+4. Use appropriate error handling for audience operations 

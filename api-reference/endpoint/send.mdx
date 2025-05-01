@@ -1,0 +1,74 @@
+# Send Message
+
+Use this endpoint to send a message to one or more recipients.
+
+<Endpoint
+  method="POST"
+  path="/send"
+  summary="Send a message"
+/>
+
+## Description
+
+The send endpoint allows you to deliver messages to your recipients. You can specify the message content, recipients, and delivery preferences in the request body.
+
+## Request
+
+<RequestExample
+  title="Send a message"
+  method="POST"
+  path="/send"
+  requestBody={{
+    "message": {
+      "to": {
+        "email": "recipient@example.com"
+      },
+      "content": {
+        "title": "Welcome to Courier",
+        "body": "This is a test message sent using the Courier API"
+      },
+      "routing": {
+        "method": "all",
+        "channels": ["email"]
+      }
+    }
+  }}
+/>
+
+## Response
+
+<ResponseExample
+  title="Success Response"
+  statusCode="200"
+  responseBody={{
+    "requestId": "123e4567-e89b-12d3-a456-426614174000",
+    "status": "accepted"
+  }}
+/>
+
+## Error Handling
+
+The API may return the following error responses:
+
+<ResponseField name="400" type="object">
+  Bad Request - The request was invalid or cannot be processed
+</ResponseField>
+
+<ResponseField name="401" type="object">
+  Unauthorized - Invalid or missing API key
+</ResponseField>
+
+<ResponseField name="429" type="object">
+  Too Many Requests - Rate limit exceeded
+</ResponseField>
+
+## Best Practices
+
+1. Always include a unique identifier in your messages for tracking
+2. Use appropriate message templates for different types of communications
+3. Test your messages in a development environment before sending to production
+4. Monitor delivery status and handle failures appropriately
+
+## Rate Limits
+
+The send endpoint is subject to rate limiting. Please contact support for specific rate limit information. 

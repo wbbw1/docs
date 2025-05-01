@@ -1,0 +1,87 @@
+---
+title: 'Audience Members'
+description: 'Manage members of your audiences'
+---
+
+# Audience Members
+
+Manage members of your audiences.
+
+## List Audience Members
+
+Retrieve the list of members in a specific audience.
+
+```http
+GET /audiences/{audience_id}/members
+```
+
+### Request
+
+```bash
+curl -X GET https://api.courier.com/audiences/audience-123/members \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+
+### Response
+
+```json
+{
+  "members": [
+    {
+      "id": "user-123",
+      "email": "user@example.com",
+      "name": "John Doe",
+      "joined_at": "2024-01-01T00:00:00Z"
+    }
+  ],
+  "cursor": "next-page-token"
+}
+```
+
+## Error Handling
+
+The API may return the following error responses:
+
+| Status Code | Description |
+|-------------|-------------|
+| 400 | Bad Request - The request was invalid or cannot be processed |
+| 401 | Unauthorized - Invalid or missing API key |
+| 404 | Not Found - The specified audience does not exist |
+
+## Best Practices
+
+1. Use pagination to handle large audiences
+2. Cache member lists when appropriate
+3. Monitor member changes and updates
+4. Handle rate limits when listing large audiences
+
+## Example Code
+
+### Python
+
+```python
+import requests
+
+def list_audience_members(api_key, audience_id):
+    headers = {
+        "Authorization": f"Bearer {api_key}"
+    }
+    response = requests.get(
+        f"https://api.courier.com/audiences/{audience_id}/members",
+        headers=headers
+    )
+    return response.json()
+```
+
+### JavaScript
+
+```javascript
+async function listAudienceMembers(apiKey, audienceId) {
+  const response = await fetch(`https://api.courier.com/audiences/${audienceId}/members`, {
+    headers: {
+      'Authorization': `Bearer ${apiKey}`
+    }
+  });
+  return response.json();
+}
+``` 

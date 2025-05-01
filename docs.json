@@ -1,13 +1,17 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Courier API Documentation",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
     "dark": "#15803D"
   },
   "favicon": "/favicon.svg",
+  "openapi": {
+    "path": "/api-reference/openapi.json",
+    "keyOrdering": true
+  },
   "navigation": {
     "tabs": [
       {
@@ -38,18 +42,34 @@
         "tab": "API Reference",
         "groups": [
           {
-            "group": "API Documentation",
+            "group": "Overview",
             "pages": [
               "api-reference/introduction"
             ]
           },
           {
-            "group": "Endpoint Examples",
+            "group": "Messages",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "api-reference/endpoint/send"
+            ]
+          },
+          {
+            "group": "Audiences",
+            "pages": [
+              "api-reference/endpoint/audiences",
+              "api-reference/endpoint/audience-members"
+            ]
+          },
+          {
+            "group": "Audit Events",
+            "pages": [
+              "api-reference/endpoint/audit-events"
+            ]
+          },
+          {
+            "group": "Authentication",
+            "pages": [
+              "api-reference/endpoint/auth-tokens"
             ]
           }
         ]
